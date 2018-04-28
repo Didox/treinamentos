@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_admin_departamento_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Novo Departamento
+  <% end %>
+  <h1>Lista de admin_departamentos</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nome</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @admin_departamentos) do |admin_departamento| %>
+            <td><%= admin_departamento.nome %></td>
+            <td><%= link_to 'Mostrar', admin_departamento %></td>
+        <td><%= link_to 'Editar', edit_admin_departamento_path(admin_departamento) %></td>
+        <td><%= link_to 'Apagar', admin_departamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

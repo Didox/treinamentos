@@ -1,0 +1,41 @@
+<div class="page-header">
+  <%= link_to new_admin_cliente_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Novo Cliente
+  <% end %>
+  <h1>Lista de Clientes</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Razão Social</th>
+            <th>Cnpj</th>
+            <th>Nome Fantasia</th>
+            <th>Nome Responsável</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Status</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @admin_clientes) do |admin_cliente| %>
+            <td><%= admin_cliente.razao_social %></td>
+            <td><%= admin_cliente.cnpj %></td>
+            <td><%= admin_cliente.nome_fantasia %></td>
+            <td><%= admin_cliente.nome_responsavel %></td>
+            <td><%= admin_cliente.email %></td>
+            <td><%= admin_cliente.telefone %></td>
+            <td><%= admin_cliente.status %></td>
+            <td><%= link_to 'Mostrar', admin_cliente %></td>
+        <td><%= link_to 'Editar', edit_admin_cliente_path(admin_cliente) %></td>
+        <td><%= link_to 'Apagar', admin_cliente, method: :delete, data: { confirm: 'Você tem Certeza que deseja Excluir?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

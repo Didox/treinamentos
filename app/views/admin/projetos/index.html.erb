@@ -1,0 +1,36 @@
+<div class="page-header">
+
+  <h1>Projetos</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nome projeto</th>
+            <th>Responsavel projeto</th>
+            <th>Email responsavel</th>
+            <th>Pdv file</th>
+            <th>Pdv qtd</th>
+            <th>Admin cliente</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @admin_projetos) do |admin_projeto| %>
+            <td><%= admin_projeto.nome_projeto %></td>
+            <td><%= admin_projeto.responsavel_projeto %></td>
+            <td><%= admin_projeto.email_responsavel %></td>
+            <td><%= admin_projeto.pdv %></td>
+            <td><%= admin_projeto.pdv_qtd %></td>
+            <td><%= admin_projeto.cliente %></td>
+            <td><%= link_to 'Mostrar', admin_projeto %></td>
+        <td><%= link_to 'Editar', edit_admin_projeto_path(admin_projeto) %></td>
+        <td><%= link_to 'Apagar', admin_projeto, method: :delete, data: { confirm: 'Você Tem Certeza que deseja Excluir?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

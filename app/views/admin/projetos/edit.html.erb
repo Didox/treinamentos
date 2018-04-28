@@ -1,0 +1,16 @@
+<div class="page-header">
+  <%= link_to @admin_projeto.cliente, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Voltar
+  <% end %>
+  <%= link_to @admin_projeto, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Mostrar
+  <% end %>
+  <h1>Editar Projeto</h1>
+  <dl class="dl-horizontal">
+    <dt>Cliente:</dt>
+    <dd><%= @admin_projeto.cliente %></dd>
+  </dl>
+
+<%= render 'form' %>

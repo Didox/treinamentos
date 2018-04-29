@@ -34,7 +34,7 @@
 
 </dl>
 <div class="page-header">
-  <%= link_to new_admin_projeto_path, class: 'btn btn-primary' do %>
+  <%= link_to new_admin_projeto_path(id:@admin_cliente), class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
     Novo Projeto
   <% end %>
@@ -48,7 +48,7 @@
             <th>Nome projeto</th>
             <th>Responsavel projeto</th>
             <th>Email responsavel</th>
-            <th>Pdv file</th>
+            <th>Pdv</th>
             <th>Pdv qtd</th>
             <th>Admin cliente</th>
             <th></th>

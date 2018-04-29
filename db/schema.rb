@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426005600) do
+ActiveRecord::Schema.define(version: 20180428164523) do
 
   create_table "admin_administradores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nome"
@@ -23,11 +23,37 @@ ActiveRecord::Schema.define(version: 20180426005600) do
     t.index ["admin_departamento_id"], name: "index_admin_administradores_on_admin_departamento_id"
   end
 
+  create_table "admin_clientes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "razao_social"
+    t.string "cnpj"
+    t.string "nome_fantasia"
+    t.string "nome_responsavel"
+    t.string "email"
+    t.string "telefone"
+    t.boolean "status", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cnpj"], name: "index_admin_clientes_on_cnpj", unique: true
+  end
+
   create_table "admin_departamentos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "admin_projetos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nome_projeto"
+    t.string "responsavel_projeto"
+    t.string "email_responsavel"
+    t.string "pdv"
+    t.integer "pdv_qtd"
+    t.bigint "cliente_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_admin_projetos_on_cliente_id"
+  end
+
   add_foreign_key "admin_administradores", "admin_departamentos"
+  add_foreign_key "admin_projetos", "admin_clientes", column: "cliente_id"
 end

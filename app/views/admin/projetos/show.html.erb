@@ -1,0 +1,32 @@
+<div class="page-header">
+  <%= link_to @admin_projeto.cliente, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Voltar
+  <% end %>
+  <%= link_to edit_admin_projeto_path(@admin_projeto), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Editar
+  <% end %>
+  <h1>Mostrar admin_projeto</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Nome projeto:</dt>
+  <dd><%= @admin_projeto.nome_projeto %></dd>
+
+  <dt>Responsavel projeto:</dt>
+  <dd><%= @admin_projeto.responsavel_projeto %></dd>
+
+  <dt>Email responsavel:</dt>
+  <dd><%= @admin_projeto.email_responsavel %></dd>
+
+  <dt>Pdv file:</dt>
+  <dd><%= @admin_projeto.pdv %></dd>
+
+  <dt>Pdv qtd:</dt>
+  <dd><%= @admin_projeto.pdv_qtd %></dd>
+
+  <dt>Admin cliente:</dt>
+  <dd><%= @admin_projeto.cliente %></dd>
+
+</dl>

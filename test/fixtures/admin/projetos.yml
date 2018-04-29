@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome_projeto: MyString
+  responsavel_projeto: MyString
+  email_responsavel: MyString
+  pdv_file: MyString
+  pdv_qtd: 1
+  admin_cliente: one
+
+two:
+  nome_projeto: MyString
+  responsavel_projeto: MyString
+  email_responsavel: MyString
+  pdv_file: MyString
+  pdv_qtd: 1
+  admin_cliente: two

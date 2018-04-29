@@ -1,5 +1,6 @@
 class Admin::ProjetosController < ApplicationController
   before_action :set_admin_projeto, only: [:show, :edit, :update, :destroy]
+  before_action :set_cliente, only: [:new]
 
   # GET /admin/projetos
   # GET /admin/projetos.json
@@ -15,6 +16,7 @@ class Admin::ProjetosController < ApplicationController
   # GET /admin/projetos/new
   def new
     @admin_projeto = Admin::Projeto.new
+    @admin_projeto.cliente = @cliente
   end
 
   # GET /admin/projetos/1/edit
@@ -31,7 +33,7 @@ class Admin::ProjetosController < ApplicationController
         format.html { redirect_to @admin_projeto, notice: 'Projeto was successfully created.' }
         format.json { render :show, status: :created, location: @admin_projeto }
       else
-        format.html { render :new }
+        format.html { render :new}
         format.json { render json: @admin_projeto.errors, status: :unprocessable_entity }
       end
     end
@@ -65,6 +67,10 @@ class Admin::ProjetosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_admin_projeto
       @admin_projeto = Admin::Projeto.find(params[:id])
+    end
+    #Seta cliente
+    def set_cliente
+      @cliente = Admin::Cliente.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
